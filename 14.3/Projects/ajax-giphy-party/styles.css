@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color: gray;
+    text-align: center;
+    border: 3px dashed gray
+}
+form{
+    text-align: center;
+}
+#submit-button {
+    background-color: darkcyan;
+    color: white;
+}
+#submit-button:hover {
+    background-color: #444444;
+    border: 2px solid white}
+
+#rmbutton {
+    background-color: darkgoldenrod;
+}
+
+#rmbutton:hover {
+    border: 2px solid white;
+}
