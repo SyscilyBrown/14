@@ -1,20 +1,61 @@
+// const searchTerm = document.getElementById("searchTerm")
 
-async function searchGif(query) {
-    let searchTerm = query
-    const res = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=yDuST6uQY24qwi4JvrttR1xVk9Xn1aRL&q=${query}&limit=1&offset=0&rating=g&lang=en`, {
-      params: {
-        q: searchTerm,
-        api_key: "yDuST6uQY24qwi4JvrttR1xVk9Xn1aRL"
-      }
-    });
-    console.log (res.data);
+// async function addGif (searchTerm){
+//   const urls = []
+//   const res = await axios.get("https://api.giphy.com/v1/gifs/search?", {
+//     params: {
+//       q: searchTerm,
+//       api_key: "yDuST6uQY24qwi4JvrttR1xVk9Xn1aRL"
+//     }
+//   });
+//   for(let url of res.data.data){
+//     urls.push(res.data.data[0].images.original.url)
+//     //returning every url
+//   }
+//   randomGif = urls[Math.floor(Math.random()*urls.length)]
+//   // newGif = document.createElement("img")
+//   // newGif.src = randomGif
+//   // console.log(newGif.value)
+//   console.log(randomGif)
+//   newGif = document.createElement("img")
+//   newGif.setAttribute("src", `${randomGif}`)
+//   document.body.appendChild(newGif)
+
+// }
+
+const form = document.getElementById("form")
+form.addEventListener("submit", async function(event) {
+  event.preventDefault(); 
+  const urls = []
+  const res = await axios.get("https://api.giphy.com/v1/gifs/search?", {
+    params: {
+      q: searchTerm.value,
+      api_key: "yDuST6uQY24qwi4JvrttR1xVk9Xn1aRL"
+    }
+  });
+  for(let url of res.data.data){
+    urls.push(res.data.data[0].images.original.url)
+    //returning every url
   }
+  randomGif = urls[Math.floor(Math.random()*urls.length)]
+  // newGif = document.createElement("img")
+  // newGif.src = randomGif
+  // console.log(newGif.value)
+  console.log(randomGif)
+  newGif = document.createElement("img")
+  newGif.setAttribute("src", `${randomGif}`)
+  newGif.classList.add("gifs")
+  document.body.appendChild(newGif)
+  searchTerm.value = " "
+ 
+})
 
-async function getURL(query) {
-    const res = await axios.post(`https://api.giphy.com/v1/gifs/search?api_key=yDuST6uQY24qwi4JvrttR1xVk9Xn1aRL&q=${query}&limit=1&offset=0&rating=g&lang=en`);
-    const url = res.data.url
-    console.log(url)
-}
+const removeBtn = document.getElementById("removeButton")
+removeBtn.addEventListener("click", function(event){
+  event.preventDefault(); 
+  $(".gifs").remove()
+})
+//document.getElementById("submit-button").addEventListener("click", addGif)
 
 
 //add gif to page from click event listener 
@@ -22,9 +63,6 @@ async function getURL(query) {
 //const button = document.getElementById("submit-button")
 //button.addEventListener("click", appendGif)
 //}
-
-
-
 
 
   /* 
