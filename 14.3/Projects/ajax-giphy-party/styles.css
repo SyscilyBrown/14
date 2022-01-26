@@ -18,10 +18,10 @@ form{
     background-color: #444444;
     border: 2px solid white}
 
-#rmbutton {
+#removeButton {
     background-color: darkgoldenrod;
 }
 
-#rmbutton:hover {
+#removeButton:hover {
     border: 2px solid white;
 }
