@@ -1,5 +1,3 @@
-
-
 const form = document.getElementById("form")
 form.addEventListener("submit", async function(event) {
   event.preventDefault(); 
@@ -10,14 +8,13 @@ form.addEventListener("submit", async function(event) {
       api_key: "yDuST6uQY24qwi4JvrttR1xVk9Xn1aRL"
     }
   });
+  //search the api based on what is entered in the form when clicked 
   for(let url of res.data.data){
     urls.push(res.data.data[0].images.original.url)
-    //returning every url
+    //11-13 iterate through all the returned URLS and choose arandom url 
   }
   randomGif = urls[Math.floor(Math.random()*urls.length)]
-  // newGif = document.createElement("img")
-  // newGif.src = randomGif
-  // console.log(newGif.value)
+
   console.log(randomGif)
   newGif = document.createElement("img")
   newGif.setAttribute("src", `${randomGif}`)
